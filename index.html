@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<!--
+  [DATA_SYNC_BLOCK_V7_DATA_DRIVEN]
+  DATE_UPDATE: 2026-04-20
+  MARKET_DATA: {
+    "GAS_SPOT": "54.00",
+    "ELEC_SPOT": "62.30",
+    "GAS_STOCKS": "28",
+    "CO2": "74.20"
+  }
+-->
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dossier Stratégique Énergie Copropriétés | Plenitude Toulouse</title>
+    <style>
+        :root {
+            --plenitude-green: #32A041;
+            --eni-yellow: #FFCC00;
+            --danger: #C53030;
+            --bg-light: #F9FCF9;
+            --text-dark: #1A202C;
+            --border: rgba(0,0,0,0.08);
+        }
+        * { box-sizing: border-box; -webkit-font-smoothing: antialiased; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: var(--text-dark); background: #F0F2F5; line-height: 1.4; padding: 20px; }
+
+        .page { width: 850px; margin: 30px auto; background: #FFF; padding: 50px; box-shadow: 0 15px 40px rgba(0,0,0,0.12); border-top: 10px solid var(--plenitude-green); }
+        
+        .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--eni-yellow); padding-bottom: 20px; margin-bottom: 30px; }
+        .logo img { height: 60px; width: auto; display: block; }
+        .status-tag { background: linear-gradient(135deg, #32A041 0%, #2D8A39 100%); color: #fff; font-weight: 800; font-size: 10px; text-transform: uppercase; padding: 4px 12px; border-radius: 4px; }
+
+        h1 { color: #32A041; font-size: 26px; text-transform: uppercase; margin-bottom: 5px; letter-spacing: -0.5px; }
+        .subtitle { font-size: 15px; color: #666; font-weight: 500; margin-bottom: 35px; }
+
+        .alert-banner { background: #FFF5F5; border-left: 6px solid var(--danger); padding: 25px; margin-bottom: 35px; color: var(--danger); font-size: 14px; text-align: justify; line-height: 1.5; }
+        .alert-banner strong { display: block; text-transform: uppercase; margin-bottom: 8px; font-size: 16px; }
+
+        h2 { color: var(--plenitude-green); background: var(--bg-light); padding: 10px 15px; font-size: 16px; border-left: 5px solid var(--eni-yellow); margin: 35px 0 20px 0; text-transform: uppercase; }
+
+        /* DASHBOARD DATA */
+        .grid-data { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 30px; }
+        .data-card { border: 1px solid var(--border); padding: 15px; border-radius: 8px; text-align: center; background: #F8FAFC; }
+        .data-card label { font-size: 9px; font-weight: 700; color: #718096; text-transform: uppercase; display: block; margin-bottom: 8px; }
+        .data-card .val { font-size: 20px; font-weight: 800; color: var(--plenitude-green); }
+        .data-card .trend { font-size: 10px; font-weight: bold; margin-top: 5px; }
+
+        .sector-focus { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 35px; }
+        .focus-card { background: #F8FAFC; border: 1px solid #E2E8F0; padding: 25px; border-radius: 8px; text-align: justify; }
+        .focus-card h4 { color: #2D3748; font-size: 13px; text-transform: uppercase; margin-bottom: 10px; border-bottom: 1px solid #E2E8F0; padding-bottom: 5px; }
+        .focus-card p { font-size: 12px; line-height: 1.6; color: #4A5568; }
+
+        .calculator-container { background: #F0F7F2; border: 2px solid var(--plenitude-green); padding: 30px; border-radius: 12px; margin: 40px 0; }
+        .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        label { font-size: 12px; font-weight: 800; color: #4A5568; display: block; margin-bottom: 8px; }
+        input, select { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #CBD5E0; font-size: 16px; font-weight: bold; }
+        .result-box { background: #FFF; border: 1px solid var(--plenitude-green); padding: 20px; border-radius: 8px; text-align: center; }
+        .result-val { font-size: 32px; font-weight: 900; color: var(--danger); display: block; margin: 10px 0; }
+
+        .cta-footer { background: linear-gradient(135deg, #32A041 0%, #247A36 100%); color: #FFF; padding: 45px; border-radius: 12px; text-align: center; margin-top: 50px; }
+        .btn-yellow { background: var(--eni-yellow); color: #000; padding: 18px 45px; border-radius: 4px; text-decoration: none; font-weight: 800; font-size: 16px; text-transform: uppercase; display: inline-block; margin-top: 20px; box-shadow: 0 4px 0 #D4AC00; }
+
+        footer { text-align: center; font-size: 10px; color: #A0AEC0; margin-top: 40px; border-top: 1px solid #EEE; padding-top: 20px; }
+
+        /* EDU BOX GRADIENT */
+        .edu-box { background: linear-gradient(135deg, #32A041 0%, #247A36 100%); color: #FFF; padding: 25px; border-radius: 8px; margin-bottom: 35px; font-size: 14px; text-align: justify; line-height: 1.6; }
+        .edu-box b { color: var(--eni-yellow); }
+    </style>
+</head>
+<body>
+
+<div class="page">
+    <div class="header">
+        <div class="logo"><img src="https://img.mailinblue.com/5245090/images/content_library/original/69bd467e2a1c09c41f6b0eb7.png" alt="Plenitude Logo"></div>
+        <div class="status-tag">ÉDITION SPÉCIALE AG 2026</div>
+    </div>
+
+    <h1>Énergie : Arbitrage Budgétaire Copropriétés</h1>
+    <p class="subtitle">Analyse d'impact et sécurisation pour les Gestionnaires de Copropriété</p>
+
+    <div class="alert-banner">
+        <strong>⚠️ ALERTE MARCHÉ : RUPTURE DE TENDANCE GAZ (+47%)</strong>
+        Le marché européen traverse une zone de turbulences majeure. Le MWh de gaz est passé de 36€ à 54€ en moins de 15 jours, porté par les tensions géopolitiques au Moyen-Orient. <br><br>
+        Pour les copropriétés, l'impact est double : <br>
+        1. <b>Mécanisme du Prix Marginal :</b> Le prix de l'électricité reste indexé sur la dernière centrale appelée (souvent au gaz). La hausse du gaz percute donc directement vos futurs budgets électricité. <br>
+        2. <b>Saison d'Injection :</b> Avec des stocks européens à seulement 28% (Source: GIE Indice AGSI), la reconstitution estivale se fera sous tension maximale, maintenant les prix à un niveau plancher élevé.
+    </div>
+
+    <h2>1. LE CONTEXTE 2026 : L'ÈRE DE LA VOLATILITÉ TOTALE</h2>
+    <div class="edu-box">
+        L'année 2026 marque la fin définitive du dispositif <b>ARENH</b> (Accès Régulé à l'Électricité Nucléaire Historique). <br>
+        Pendant des années, les copropriétés ont bénéficié d'une partie de leur énergie à prix fixe protégé (42€/MWh). Ce bouclier a disparu. Désormais, <b>100% de votre volume est exposé aux fluctuations du marché</b>. Sans une stratégie de verrouillage et d'optimisation contractuelle, les budgets votés en AG deviennent impossibles à tenir.
+    </div>
+
+    <div class="grid-data-header" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 10px;">
+        <h3 style="font-size: 13px; color: #32A041; text-transform: uppercase; margin: 0;">Indicateurs de Marché (Clôture)</h3>
+        <span style="font-size: 10px; color: #718096; font-weight: 600;">Source : EEX / Powernext — Avril 2026</span>
+    </div>
+    <div class="grid-data">
+        <div class="data-card">
+            <label>Gaz Spot (PEG)</label>
+            <span class="val">54.00 €</span>
+            <div class="trend" style="color:var(--danger)">▲ Hausse Critique</div>
+        </div>
+        <div class="data-card">
+            <label>Élec Spot</label>
+            <span class="val">62.30 €</span>
+            <div class="trend" style="color:#2D6A4F">▼ Calme Solaire</div>
+        </div>
+        <div class="data-card">
+            <label>Stocks Europe</label>
+            <span class="val">28 %</span>
+            <div class="trend" style="color:var(--danger)">⚠️ Seuil d'Alerte</div>
+        </div>
+        <div class="data-card">
+            <label>Quota CO2</label>
+            <span class="val">74.20 €</span>
+            <div class="trend" style="color:#718096;">Maintien Haussier</div>
+        </div>
+    </div>
+
+    <h2>1. ZOOM EXPERTISE : GESTIONNAIRES DE COPROPRIÉTÉ</h2>
+    <div class="sector-focus">
+        <div class="focus-card">
+            <h4>DPE Collectif (Loi Climat)</h4>
+            <p>Le DPE est désormais opposable (Art. L126-27 du CCH) et obligatoire pour tout le parc depuis le 01/01/2026. <br>
+            <b>Notre Valeur :</b> Audit "amont" des factures pour garantir la fiabilité des données sources et éviter une étiquette dégradée par des erreurs de facturation non détectées.</p>
+        </div>
+        <div class="focus-card">
+            <h4>Bornes IRVE (Loi LOM)</h4>
+            <p>Le droit à la prise oblige le Syndic à gérer l'augmentation de la puissance appelée sur le site. <br>
+            <b>Notre Valeur :</b> Modélisation technique pour intégrer la recharge électrique <b>sans augmenter votre puissance souscrite</b> (TURPE) via un pilotage intelligent.</p>
+        </div>
+        <div class="focus-card">
+            <h4>Optimisation Post-Travaux</h4>
+            <p>Une rénovation thermique ne réduit pas automatiquement la part fixe (abonnement) de la facture. <br>
+            <b>Notre Valeur :</b> Ajustement immédiat de la structure contractuelle et des puissances pour transformer les gains thermiques en baisses de charges réelles.</p>
+        </div>
+        <div class="focus-card" style="background: #EBF8FF; border-color: #3182CE;">
+            <h4 style="color: #2B6CB0;">Note de Synthèse "Spéciale AG"</h4>
+            <p style="color: #2A4365;">Justifier la volatilité des marchés et la fin de l'ARENH devant 100 copropriétaires est un défi. <br>
+            <b>Notre Valeur :</b> Note de synthèse "clés en main" décryptant les arbitrages budgétaires pour rassurer le Conseil Syndical et sécuriser vos votes en AG.</p>
+        </div>
+    </div>
+
+    <h2>2. CALCULATEUR D'IMPACT BI-ÉNERGIE (PROJECTION 2026)</h2>
+    <div class="calculator-container">
+        <div class="calc-grid">
+            <div class="inputs">
+                <div style="margin-bottom: 15px;">
+                    <label>Nombre de lots (Appartements) :</label>
+                    <input type="number" id="nb_lots" value="40" oninput="updateCalc()">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label>Électricité (Services & Communs) :</label>
+                    <select id="elec_equip" onchange="updateCalc()">
+                        <option value="1.5">Services de base (Ascenseur/Éclairage)</option>
+                        <option value="11.5">Chauffage Collectif Électrique</option>
+                        <option value="4.2">Mixte (Base + ECS)</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Gaz (Chauffage / Eau Chaude) :</label>
+                    <select id="gas_equip" onchange="updateCalc()">
+                        <option value="0">Pas de Gaz Collectif</option>
+                        <option value="12">Chauffage Collectif Gaz</option>
+                        <option value="3.5">Eau Chaude Sanitaire (ECS) seule</option>
+                    </select>
+                </div>
+            </div>
+            <div class="results">
+                <div class="result-box">
+                    <label style="color:var(--danger)">VALEUR À RISQUE (VaR) TOTALE</label>
+                    <span class="result-val" id="res-loss">1 620 € / an</span>
+                    <p style="font-size: 11px; font-weight: 600;">Surcoût prévisionnel pour la copropriété</p>
+                    <div style="font-size: 10px; color: #4A5568; margin-top: 15px; border-top: 1px solid #EEE; padding-top: 15px; text-align: left;">
+                        <b style="color: #32A041; text-transform: uppercase; font-size: 9px; display: block; margin-bottom: 5px;">Documentation & Sources des Risques :</b>
+                        • <b>Électricité (+27 €/MWh) :</b> Écart entre le prix "Spot" actuel et les contrats "Futures" (Juin 26). <i>Source : EEX (Bourse Européenne).</i> <br>
+                        • <b>Gaz Naturel (+18 €/MWh) :</b> Répercussion de la hausse de +47% observée au PEG France. <i>Source : Powernext / GRTgaz.</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-footer">
+        <h3>Arrivez en AG avec une solution, pas un problème.</h3>
+        <p style="margin: 15px 0; opacity: 0.9;">Demandez votre Audit de Vigilance pour sécuriser vos budgets de copropriété.</p>
+        <a href="https://dd941d49.sibforms.com/serve/MUIFAC-dABfkw2vSQxLfYyyGAsO6ktJfXnq3AT4HveVvFdGTJiDvpH1DnI0t_0fnoHnL8pWcXRhHzk-Vw0rN0ul1m82AABiTlJfGasijFHKmWWhk35OSEpPgvPw3KZ1DTV60mTnJKWNdYpA_vaVU9YCJgFdAJBVxySke0Qurdtv85wAvjW-Jisp9M4mXzzMSC4K7oobyujgw9TDG" class="btn-yellow" target="_blank">LANCER MON AUDIT SYNDIC</a>
+    </div>
+
+    <footer>
+        <b>Plenitude par Eni</b> | Nicolas Zerr - Expert Énergie Toulouse & Occitanie<br>
+        Optimisation contractuelle & diagnostic de facturation. <br>
+        <span style="font-size: 9px; opacity: 0.7;">Indicateurs basés sur les données de marché au 20/04/2026.</span>
+    </footer>
+</div>
+
+<script>
+    function updateCalc() {
+        const lots = parseFloat(document.getElementById('nb_lots').value) || 0;
+        const ratioElec = parseFloat(document.getElementById('elec_equip').value);
+        const ratioGas = parseFloat(document.getElementById('gas_equip').value);
+        
+        // Deltas
+        const deltaElec = 27; // Elec: 27€/MWh
+        const deltaGas = 18;  // Gas: 18€/MWh
+        
+        const riskElec = lots * ratioElec * deltaElec;
+        const riskGas = lots * ratioGas * deltaGas;
+        const totalRisk = riskElec + riskGas;
+        
+        document.getElementById('res-loss').innerText = Math.round(totalRisk).toLocaleString() + " € / an";
+    }
+    window.onload = updateCalc;
+</script>
+
+</body>
+</html>
